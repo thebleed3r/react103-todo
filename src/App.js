@@ -1,26 +1,42 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Body from './components/Body'
+import Header from './components/Header'
+import Counter from './components/Counter'
+import Slider from './components/Slider'
+import Form from './components/Form'
+
+
+class App extends React.Component{
+  state = {
+    visible: true
+  }
+
+  render() {
+
+    const buttonText = this.state.visible ? "hide" : "show"
+    const slider = this.state.visible ? <Slider /> : <p>Slider hidden</p>
+
+    return (
+      <div className="App">
+        {/* <Header 
+        title="Hello from the depths of React !" 
+        />
+        <Body text="Hello from the other side !"/>
+        <Counter initialCount={0}/>
+        {slider}
+        <button
+          onClick={() => {
+            this.setState({ visible: !this.state.visible })
+          }}>
+          {buttonText}
+        </button> */}
+
+        <Form />
+      </div>
+    );
+  }
+  }
 
 export default App;
